@@ -10,8 +10,8 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9; /* Fond clair */
-            color: #333; /* Texte gris foncé */
+            background-color: #000; /* Fond noir */
+            color: #fff; /* Texte blanc */
             overflow-x: hidden;
         }
 
@@ -23,7 +23,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 2px 5px rgba(255, 0, 0, 0.5);
             position: fixed;
             width: 100%;
             top: 0;
@@ -82,9 +82,9 @@
         /* Barre latérale */
         .sidebar {
             width: 250px;
-            background-color: #eaeaea;
+            background-color: #1c1c1c; /* Fond gris foncé */
             padding: 20px;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 0px 5px rgba(255, 0, 0, 0.5);
             height: calc(100vh - 70px); /* Ajuste la hauteur pour ne pas dépasser l'en-tête */
             position: fixed;
             top: 70px; /* Aligne sous l'en-tête */
@@ -92,7 +92,7 @@
         }
 
         .sidebar a {
-            color: #333;
+            color: #fff; /* Texte blanc pour les liens */
             text-decoration: none;
             display: block;
             padding: 10px;
@@ -102,7 +102,7 @@
         }
 
         .sidebar a:hover {
-            background-color: #ccc;
+            background-color: #3a3a3a; /* Couleur gris clair au survol */
         }
 
         /* Contenu principal */
@@ -123,11 +123,11 @@
         }
 
         .content-card {
-            background-color: #fff; /* Fond blanc pour les cartes */
-            border: 1px solid #ccc; /* Bordure gris */
+            background-color: #1c1c1c; /* Fond gris foncé pour les cartes */
+            border: 1px solid #ff0000; /* Bordure rouge YouTube */
             border-radius: 5px;
             padding: 15px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 5px rgba(255, 0, 0, 0.5);
             cursor: pointer;
             transition: transform 0.2s;
         }
@@ -170,26 +170,17 @@
         /* Formulaire d'ajout d'éléments */
         .add-item-section {
             margin-top: 20px;
-            background-color: #f0f0f0;
+            background-color: #2c2c2c; /* Fond gris plus clair pour les formulaires */
             padding: 20px;
             border-radius: 5px;
             border: 1px solid #ff0000; /* Bordure rouge YouTube */
-        }
-
-        .add-item-section input,
-        .add-item-section select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ff0000; /* Bordure rouge YouTube */
-            border-radius: 5px;
         }
 
         /* Styles pour le profil utilisateur */
         .profile-section {
             margin-top: 20px;
             padding: 20px;
-            background-color: #f0f0f0;
+            background-color: #2c2c2c; /* Fond gris clair pour le profil */
             border-radius: 5px;
             border: 1px solid #ff0000; /* Bordure rouge YouTube */
         }
