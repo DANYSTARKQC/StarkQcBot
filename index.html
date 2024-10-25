@@ -160,7 +160,7 @@
             border: 1px solid #cc5500; /* Bordure orange plus foncé */
         }
 
-        .add-item-section input {
+        .add-item-section input, .add-item-section select {
             width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 10px;
@@ -250,11 +250,12 @@
                     <option value="photo">Photo</option>
                     <option value="projet">Projet</option>
                 </select>
+                <input type="file" id="itemFile" placeholder="Télécharger un fichier" required>
                 <button id="addItemButton">Ajouter</button>
                 <p class="error-message" id="addItemMessage"></p>
             </section>
 
-            <!-- Section de vidéos -->
+            <!-- Section des vidéos -->
             <section id="videos">
                 <h2>Vidéos</h2>
                 <div class="content-section" id="videoContent">
@@ -275,6 +276,15 @@
                 <h2>Projets</h2>
                 <div class="content-section" id="projectContent">
                     <!-- Les projets ajoutés apparaîtront ici -->
+                </div>
+            </section>
+
+            <!-- Section de streaming -->
+            <section id="streaming">
+                <h2>Streaming en Direct</h2>
+                <div class="content-section">
+                    <p>Actuellement, cette fonctionnalité n'est pas encore disponible.</p>
+                    <button>Commencer le streaming</button>
                 </div>
             </section>
         </main>
