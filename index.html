@@ -282,16 +282,19 @@
                 </div>
             </section>
 
-            <!-- Section d'upload (Admin) -->
+            <!-- Tableau de bord d'administration -->
             <section id="upload">
-                <h2>Uploader un nouveau contenu</h2>
+                <h2>Uploader (Admin)</h2>
                 <div class="admin-dashboard">
-                    <form id="uploadForm">
-                        <input type="text" id="title" placeholder="Titre" required>
-                        <input type="text" id="description" placeholder="Description" required>
-                        <input type="file" id="file" accept="video/*, image/*" required>
-                        <button type="submit">Uploader</button>
-                    </form>
+                    <h3>Ajouter une nouvelle vidéo, photo ou projet</h3>
+                    <input type="text" placeholder="Titre" required>
+                    <input type="url" placeholder="URL de la vidéo ou de l'image" required>
+                    <select>
+                        <option value="video">Vidéo</option>
+                        <option value="photo">Photo</option>
+                        <option value="projet">Projet</option>
+                    </select>
+                    <button type="submit">Ajouter</button>
                 </div>
             </section>
         </main>
@@ -300,22 +303,6 @@
     <footer>
         <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
     </footer>
-
-    <script>
-        // Gérer la soumission du formulaire d'inscription
-        document.getElementById('signupForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            // Logique d'inscription ici
-            alert("Inscription réussie !");
-        });
-
-        // Gérer la soumission du formulaire d'upload
-        document.getElementById('uploadForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-            // Logique d'upload ici
-            alert("Contenu téléchargé avec succès !");
-        });
-    </script>
 </body>
 
 </html>
