@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Style YouTube - Thème Orange</title>
+    <title>Mon Site Vidéo - Style YouTube & Twitch</title>
     <style>
         /* Styles globaux */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f7f0e3;
+            background-color: #f2f2f2;
             color: #333;
         }
 
@@ -21,10 +21,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
             margin: 0;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
 
         nav {
@@ -45,6 +58,8 @@
         /* Conteneur principal */
         main {
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         /* Section pour les vidéos */
@@ -61,6 +76,7 @@
             border-radius: 5px;
             padding: 15px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
         }
 
         .video-card img {
@@ -75,6 +91,36 @@
             color: #ff6600;
         }
 
+        /* Tableau de bord d'administration */
+        .admin-dashboard {
+            background-color: #fff4e6;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ffa500;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .admin-dashboard input,
+        .admin-dashboard button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ffa500;
+            border-radius: 5px;
+        }
+
+        .admin-dashboard button {
+            background-color: #ff6600;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .admin-dashboard button:hover {
+            background-color: #e65c00;
+        }
+
         /* Pied de page */
         footer {
             background-color: #ff8c00;
@@ -83,56 +129,24 @@
             padding: 10px 0;
             margin-top: 20px;
         }
-
-        /* Formulaire de contact */
-        .contact-form {
-            background-color: #fff4e6;
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #ffa500;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ffa500;
-            border-radius: 5px;
-        }
-
-        .contact-form button {
-            background-color: #ff6600;
-            color: white;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .contact-form button:hover {
-            background-color: #e65c00;
-        }
     </style>
 </head>
 <body>
     <header>
         <h1>MonTube</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher des vidéos...">
+        </div>
         <nav>
-            <a href="#introduction">Accueil</a>
-            <a href="#contenu">Vidéos</a>
-            <a href="#contact">Contact</a>
+            <a href="#accueil">Accueil</a>
+            <a href="#en-direct">En direct</a>
+            <a href="#upload">Uploader (Admin)</a>
         </nav>
     </header>
 
     <main>
-        <section id="introduction">
-            <h2>Bienvenue sur MonTube</h2>
-            <p>Ceci est un site de démonstration inspiré de YouTube avec une palette de couleurs orange.</p>
-        </section>
-
-        <section id="contenu">
+        <!-- Section de vidéos populaires -->
+        <section id="accueil">
             <h2>Vidéos populaires</h2>
             <div class="video-section">
                 <!-- Carte de vidéo 1 -->
@@ -141,44 +155,58 @@
                     <p class="video-title">Titre de la vidéo 1</p>
                     <p>Petite description de la vidéo 1.</p>
                 </div>
-                
+
                 <!-- Carte de vidéo 2 -->
                 <div class="video-card">
                     <img src="chemin/vers/ton-image2.jpg" alt="Vidéo 2">
                     <p class="video-title">Titre de la vidéo 2</p>
                     <p>Petite description de la vidéo 2.</p>
                 </div>
-                
-                <!-- Carte de vidéo 3 -->
-                <div class="video-card">
-                    <img src="chemin/vers/ton-image3.jpg" alt="Vidéo 3">
-                    <p class="video-title">Titre de la vidéo 3</p>
-                    <p>Petite description de la vidéo 3.</p>
-                </div>
             </div>
         </section>
 
-        <section id="contact">
-            <h2>Formulaire de contact</h2>
-            <div class="contact-form">
-                <form action="#" method="post">
-                    <label for="nom">Nom :</label>
-                    <input type="text" id="nom" name="nom" required>
-                    
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required>
-                    
-                    <label for="message">Message :</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                    
-                    <button type="submit">Envoyer</button>
-                </form>
+        <!-- Section en direct -->
+        <section id="en-direct">
+            <h2>En direct maintenant</h2>
+            <div class="video-section">
+                <!-- Similaire à la section des vidéos populaires -->
             </div>
+        </section>
+
+        <!-- Tableau de bord d'administration -->
+        <section id="upload" class="admin-dashboard">
+            <h2>Uploader une nouvelle vidéo</h2>
+            <form id="uploadForm">
+                <input type="text" id="videoTitle" placeholder="Titre de la vidéo" required>
+                <input type="file" id="videoFile" accept="video/*" required>
+                <button type="submit">Uploader la vidéo</button>
+            </form>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 - DANYSTARKQC</p>
     </footer>
+
+    <!-- JavaScript pour uploader des vidéos -->
+    <script>
+        // Exemple de gestion des permissions (Admin)
+        const isAdmin = true; // Remplace par une vérification côté serveur
+        const adminSection = document.getElementById('upload');
+
+        if (!isAdmin) {
+            adminSection.style.display = 'none';
+        }
+
+        // Gestion du formulaire d'upload
+        document.getElementById('uploadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const title = document.getElementById('videoTitle').value;
+            const file = document.getElementById('videoFile').files[0];
+            
+            // Envoie la vidéo au serveur (implémentation backend requise)
+            console.log(`Vidéo "${title}" prête à être uploadée :`, file);
+        });
+    </script>
 </body>
 </html>
