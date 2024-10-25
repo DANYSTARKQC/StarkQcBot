@@ -4,36 +4,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANYSTARKQC - Accueil</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DANYSTARKQC - Site Vidéo</title>
+    <style>
+        /* Styles globaux */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9; /* Fond clair */
+            color: #333; /* Texte gris foncé */
+            overflow-x: hidden;
+        }
+
+        /* En-tête principal */
+        header {
+            background-color: #ff0000; /* Rouge YouTube */
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            max-width: 600px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .user-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-buttons a {
+            background-color: #ff0000; /* Rouge YouTube */
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .user-buttons a:hover {
+            background-color: #cc0000;
+        }
+
+        /* Conteneur de la page principale */
+        .page-container {
+            display: flex;
+            margin-top: 70px; /* Compense la barre de navigation fixe */
+        }
+
+        /* Barre latérale */
+        .sidebar {
+            width: 250px;
+            background-color: #eaeaea;
+            padding: 20px;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            height: calc(100vh - 70px); /* Ajuste la hauteur pour ne pas dépasser l'en-tête */
+            position: fixed;
+            top: 70px; /* Aligne sous l'en-tête */
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #ccc;
+        }
+
+        /* Contenu principal */
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            margin-left: 270px; /* Compense la barre latérale */
+            height: calc(100vh - 70px); /* Ajuste la hauteur pour le contenu principal */
+            overflow-y: auto; /* Permet le défilement vertical */
+        }
+
+        /* Section pour les vidéos, photos, et projets */
+        .content-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .content-card {
+            background-color: #fff; /* Fond blanc pour les cartes */
+            border: 1px solid #ccc; /* Bordure gris */
+            border-radius: 5px;
+            padding: 15px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .content-card:hover {
+            transform: scale(1.05);
+        }
+
+        .content-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .content-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #ff0000; /* Texte rouge pour les titres */
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: #ff0000; /* Rouge YouTube */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Styles pour le message d'erreur */
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Formulaire d'ajout d'éléments */
+        .add-item-section {
+            margin-top: 20px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ff0000; /* Bordure rouge YouTube */
+        }
+
+        .add-item-section input,
+        .add-item-section select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ff0000; /* Bordure rouge YouTube */
+            border-radius: 5px;
+        }
+
+        /* Styles pour le profil utilisateur */
+        .profile-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            border: 1px solid #ff0000; /* Bordure rouge YouTube */
+        }
+
+        .profile-section img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .social-buttons {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-buttons button {
+            background-color: #3b5998; /* Couleur Facebook */
+            border: none;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .social-buttons button:hover {
+            background-color: #4e69a2; /* Couleur Facebook au survol */
+        }
+
+        .social-buttons .twitter {
+            background-color: #1da1f2; /* Couleur Twitter */
+        }
+
+        .social-buttons .twitter:hover {
+            background-color: #1a8cd8; /* Couleur Twitter au survol */
+        }
+
+        .social-buttons .google {
+            background-color: #db4437; /* Couleur Google */
+        }
+
+        .social-buttons .google:hover {
+            background-color: #c13527; /* Couleur Google au survol */
+        }
+    </style>
 </head>
 
 <body>
     <header>
-        <div class="logo">DANYSTARKQC</div>
+        <div class="logo">
+            <h1>DANYSTARKQC</h1>
+        </div>
         <div class="search-bar">
             <input type="text" placeholder="Rechercher des vidéos...">
         </div>
         <div class="user-buttons">
-            <a href="signup.html">Inscription</a>
-            <a href="login.html">Connexion</a>
+            <a href="#signup" id="signupLink">Inscription</a>
+            <a href="#login" id="loginLink">Connexion</a>
+            <span id="profileLink" style="display: none;">Profil</span>
         </div>
     </header>
 
-    <main>
-        <h1>Bienvenue sur DANYSTARKQC</h1>
-        <nav>
-            <a href="videos.html">Vidéos</a>
-            <a href="photos.html">Photos</a>
-            <a href="projects.html">Projets</a>
-            <a href="streaming.html">Streaming</a>
-            <a href="profile.html">Profil</a>
-        </nav>
-    </main>
+    <div class="page-container">
+        <!-- Barre latérale -->
+        <div class="sidebar">
+            <a href="#videos" onclick="showSection('videos')">Vidéos</a>
+            <a href="#photos" onclick="showSection('photos')">Photos</a>
+            <a href="#projets" onclick="showSection('projets')">Projets</a>
+            <a href="#streaming" onclick="showSection('streaming')">Streaming</a>
+            <a href="#profile" onclick="showSection('profile')">Profil</a>
+        </div>
+
+        <!-- Contenu principal -->
+        <main>
+            <!-- Section d'inscription -->
+            <section class="auth-section" id="signup" style="display: none;">
+                <h2>Inscription</h2>
+                <form id="signupForm">
+                    <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Mot de passe" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+                <p class="error-message" id="signupMessage"></p>
+            </section>
+
+            <!-- Section de connexion -->
+            <section class="auth-section" id="login" style="display: none;">
+                <h2>Connexion</h2>
+                <form id="loginForm">
+                    <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" required>
+                    <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                    <button type="submit">Se connecter</button>
+                </form>
+                <p class="error-message" id="loginMessage"></p>
+            </section>
+
+            <!-- Section Vidéos -->
+            <section id="videos" class="content-section" style="display: none;">
+                <h2>Vidéos</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="video1.jpg" alt="Vidéo 1">
+                        <div class="content-title">Titre de Vidéo 1</div>
+                    </div>
+                    <div class="content-card">
+                        <img src="video2.jpg" alt="Vidéo 2">
+                        <div class="content-title">Titre de Vidéo 2</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Photos -->
+            <section id="photos" class="content-section" style="display: none;">
+                <h2>Photos</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="photo1.jpg" alt="Photo 1">
+                        <div class="content-title">Titre de Photo 1</div>
+                    </div>
+                    <div class="content-card">
+                        <img src="photo2.jpg" alt="Photo 2">
+                        <div class="content-title">Titre de Photo 2</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Projets -->
+            <section id="projets" class="content-section" style="display: none;">
+                <h2>Projets</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="project1.jpg" alt="Projet 1">
+                        <div class="content-title">Titre de Projet 1</div>
+                    </div>
+                    <div class="content-card">
+                        <img src="project2.jpg" alt="Projet 2">
+                        <div class="content-title">Titre de Projet 2</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Streaming -->
+            <section id="streaming" class="content-section" style="display: none;">
+                <h2>Streaming</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="stream1.jpg" alt="Streaming 1">
+                        <div class="content-title">Titre de Streaming 1</div>
+                    </div>
+                    <div class="content-card">
+                        <img src="stream2.jpg" alt="Streaming 2">
+                        <div class="content-title">Titre de Streaming 2</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Profil -->
+            <section id="profile" class="profile-section" style="display: none;">
+                <h2>Profil</h2>
+                <img src="profile.jpg" alt="Photo de profil">
+                <div>
+                    <strong>Nom d'utilisateur:</strong> <span id="displayUsername">Nom d'utilisateur</span>
+                </div>
+                <div class="social-buttons">
+                    <button>Modifier le Profil</button>
+                    <button>Déconnexion</button>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        // Gestion de l'affichage des sections
+        function showSection(sectionId) {
+            const sections = ['videos', 'photos', 'projets', 'streaming', 'profile', 'signup', 'login'];
+            sections.forEach(id => {
+                document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+            });
+        }
+
+        // Gestion de l'inscription
+        document.getElementById('signupForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Logique d'inscription ici
+            document.getElementById('signupMessage').textContent = "Inscription réussie!";
+            showSection('login'); // Redirige vers la connexion après l'inscription
+        });
+
+        // Gestion de la connexion
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            // Logique de connexion ici
+            const username = document.getElementById('loginUsername').value;
+            document.getElementById('displayUsername').textContent = username;
+            document.getElementById('profileLink').style.display = 'inline'; // Affiche le lien du profil
+            showSection('profile'); // Redirige vers la page de profil après la connexion
+        });
+
+        // Affichage de la section d'accueil par défaut
+        showSection('videos'); // Montre la section Vidéos par défaut
+    </script>
 </body>
 
 </html>
