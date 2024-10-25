@@ -185,12 +185,24 @@
         /* Pied de page */
         footer {
             background-color: #cc5500; /* Orange plus foncé */
-            color: white;
+            color: rgb(255, 0, 0);
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
             position: relative;
             width: 100%;
+        }
+
+        /* Cacher le tableau de bord si non administrateur */
+        .admin-dashboard.hidden {
+            display: none;
+        }
+
+        /* Style pour le message d'erreur */
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -205,7 +217,7 @@
         </div>
         <div class="user-buttons">
             <a href="#signup">Inscription</a>
-            <a href="#login">Connexion</a>
+            <a href="#login" id="loginButton">Connexion</a>
         </div>
     </header>
 
@@ -215,7 +227,7 @@
             <a href="#videos">Vidéos</a>
             <a href="#photos">Photos</a>
             <a href="#projets">Projets</a>
-            <a href="#upload">Uploader (Admin)</a>
+            <a href="#upload" id="adminLink">Uploader (Admin)</a>
         </div>
 
         <!-- Contenu principal -->
@@ -284,8 +296,8 @@
 
             <!-- Tableau de bord d'administration -->
             <section id="upload">
-                <h2>Uploader (Admin)</h2>
-                <div class="admin-dashboard">
+                <h2>Admin Dahsbord (Admin)</h2>
+                <div class="admin-dashboard" id="adminDashboard">
                     <h3>Ajouter une nouvelle vidéo, photo ou projet</h3>
                     <input type="text" placeholder="Titre" required>
                     <input type="url" placeholder="URL de la vidéo ou de l'image" required>
@@ -296,6 +308,7 @@
                     </select>
                     <button type="submit">Ajouter</button>
                 </div>
+                <p class="error-message" id="errorMessage"></p>
             </section>
         </main>
     </div>
@@ -303,6 +316,34 @@
     <footer>
         <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        // Script d'authentification simple
+        const adminUsername = "admin"; // Votre nom d'utilisateur administrateur
+        const adminPassword = "admin123"; // Votre mot de passe administrateur
+
+        // Gérer l'inscription
+        document.getElementById("signupForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
+            this.reset(); // Réinitialise le formulaire
+        });
+
+        // Gérer la connexion
+        document.getElementById("loginButton").addEventListener("click", function () {
+            const username = prompt("Entrez votre nom d'utilisateur:");
+            const password = prompt("Entrez votre mot de passe:");
+
+            if (username === adminUsername && password === adminPassword) {
+                alert("Connexion réussie !");
+                document.getElementById("adminDashboard").classList.remove("hidden");
+                document.getElementById("errorMessage").textContent = ""; // Efface les messages d'erreur
+            } else {
+                alert("Nom d'utilisateur ou mot de passe incorrect.");
+                document.getElementById("errorMessage").textContent = "Accès refusé. Veuillez réessayer.";
+            }
+        });
+    </script>
 </body>
 
 </html>
