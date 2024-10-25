@@ -283,4 +283,173 @@
         <main>
             <!-- Section d'inscription -->
             <section class="auth-section" id="signup">
-               
+                <h2>Inscription</h2>
+                <form id="signupForm">
+                    <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                    <input type="email" id="email" placeholder="E-mail" required>
+                    <input type="password" id="password" placeholder="Mot de passe" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+                <div id="signupMessage" class="error-message"></div>
+            </section>
+
+            <!-- Section de connexion -->
+            <section class="auth-section" id="login">
+                <h2>Connexion</h2>
+                <form id="loginForm">
+                    <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" required>
+                    <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                    <button type="submit">Se connecter</button>
+                </form>
+                <div id="loginMessage" class="error-message"></div>
+            </section>
+
+            <!-- Section de profil utilisateur -->
+            <section class="profile-section" id="profile">
+                <h2>Profil de l'utilisateur</h2>
+                <img src="profile.jpg" alt="Profil Utilisateur">
+                <input type="text" id="profileUsername" placeholder="Nom d'utilisateur" required>
+                <input type="email" id="profileEmail" placeholder="E-mail" required>
+                <button id="updateProfileButton">Mettre à jour le profil</button>
+                <div id="profileMessage" class="error-message"></div>
+
+                <div class="social-buttons">
+                    <button class="facebook">Se connecter avec Facebook</button>
+                    <button class="twitter">Se connecter avec Twitter</button>
+                    <button class="google">Se connecter avec Google</button>
+                </div>
+            </section>
+
+            <!-- Section d'ajout d'éléments -->
+            <section class="add-item-section">
+                <h2>Ajouter un contenu</h2>
+                <input type="text" id="itemTitle" placeholder="Titre de l'élément" required>
+                <input type="text" id="itemDescription" placeholder="Description de l'élément" required>
+                <input type="text" id="itemImage" placeholder="URL de l'image" required>
+                <select id="itemType">
+                    <option value="video">Vidéo</option>
+                    <option value="photo">Photo</option>
+                    <option value="projet">Projet</option>
+                </select>
+                <button id="addItemButton">Ajouter</button>
+                <div id="addItemMessage" class="error-message"></div>
+            </section>
+
+            <!-- Section pour les vidéos -->
+            <section id="videos">
+                <h2>Vidéos</h2>
+                <div class="content-section" id="videoContent"></div>
+            </section>
+
+            <!-- Section pour les photos -->
+            <section id="photos">
+                <h2>Photos</h2>
+                <div class="content-section" id="photoContent"></div>
+            </section>
+
+            <!-- Section pour les projets -->
+            <section id="projets">
+                <h2>Projets</h2>
+                <div class="content-section" id="projectContent"></div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Gestion de l'inscription
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            if (username === '' || email === '' || password === '') {
+                document.getElementById('signupMessage').innerText = 'Tous les champs sont requis.';
+                return;
+            }
+
+            // Simuler une inscription réussie
+            document.getElementById('signupMessage').innerText = 'Inscription réussie !';
+            this.reset();
+        });
+
+        // Gestion de la connexion
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value;
+            const loginPassword = document.getElementById('loginPassword').value;
+
+            if (loginUsername === '' || loginPassword === '') {
+                document.getElementById('loginMessage').innerText = 'Tous les champs sont requis.';
+                return;
+            }
+
+            // Simuler une connexion réussie
+            document.getElementById('loginMessage').innerText = 'Connexion réussie !';
+            this.reset();
+        });
+
+        // Gestion de l'ajout d'éléments
+        document.getElementById('addItemButton').addEventListener('click', function () {
+            const title = document.getElementById('itemTitle').value;
+            const description = document.getElementById('itemDescription').value;
+            const imageUrl = document.getElementById('itemImage').value;
+            const itemType = document.getElementById('itemType').value;
+
+            const newItem = {
+                title: title,
+                description: description,
+                imageUrl: imageUrl,
+                type: itemType
+            };
+
+            // Récupérer les éléments existants du stockage local
+            const items = JSON.parse(localStorage.getItem('items')) || [];
+            items.push(newItem);
+            localStorage.setItem('items', JSON.stringify(items));
+
+            const newCard = document.createElement('div');
+            newCard.className = 'content-card';
+            newCard.innerHTML = `
+                <img src="${imageUrl}" alt="${title}">
+                <div class="content-title">${title}</div>
+                <p>${description}</p>
+            `;
+
+            // Ajout du nouvel élément à la bonne section
+            if (itemType === 'video') {
+                document.getElementById('videoContent').appendChild(newCard);
+            } else if (itemType === 'photo') {
+                document.getElementById('photoContent').appendChild(newCard);
+            } else if (itemType === 'projet') {
+                document.getElementById('projectContent').appendChild(newCard);
+            }
+
+            // Réinitialiser les champs d'ajout
+            document.getElementById('itemTitle').value = '';
+            document.getElementById('itemDescription').value = '';
+            document.getElementById('itemImage').value = '';
+            document.getElementById('addItemMessage').innerText = 'Élément ajouté avec succès !';
+        });
+
+        // Gestion de la mise à jour du profil
+        document.getElementById('updateProfileButton').addEventListener('click', function () {
+            const profileUsername = document.getElementById('profileUsername').value;
+            const profileEmail = document.getElementById('profileEmail').value;
+
+            if (profileUsername === '' || profileEmail === '') {
+                document.getElementById('profileMessage').innerText = 'Tous les champs sont requis.';
+                return;
+            }
+
+            // Simuler une mise à jour réussie
+            document.getElementById('profileMessage').innerText = 'Profil mis à jour avec succès !';
+        });
+    </script>
+</body>
+
+</html>
