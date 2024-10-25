@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANYSTARKQC - Profil</title>
+    <title>DANYSTARKQC - Inscription</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,15 +14,19 @@
         <div class="search-bar">
             <input type="text" placeholder="Rechercher des vidéos...">
         </div>
-        <div class="user-buttons" id="userButtons">
+        <div class="user-buttons">
             <a href="login.html">Connexion</a>
         </div>
     </header>
 
     <main>
-        <h1>Mon Profil</h1>
-        <div id="profileInfo"></div>
-        <button id="logoutButton">Se déconnecter</button>
+        <h1>Inscription</h1>
+        <form id="signupForm">
+            <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+            <input type="password" id="password" placeholder="Mot de passe" required>
+            <button type="submit">S'inscrire</button>
+        </form>
+        <p id="signupMessage"></p>
     </main>
 
     <footer>
