@@ -151,18 +151,18 @@
             color: #ff8c00; /* Texte orange pour les titres */
         }
 
-        /* Tableau de bord d'administration */
-        .admin-dashboard {
-            background-color: #1e1e1e; /* Fond noir */
+        /* Formulaire d'inscription et de connexion */
+        .auth-section {
+            max-width: 400px;
+            margin: 20px auto;
             padding: 20px;
+            background-color: #1e1e1e; /* Fond noir */
             border-radius: 5px;
             border: 1px solid #cc5500; /* Bordure orange plus foncé */
-            max-width: 800px;
-            margin: 20px auto;
         }
 
-        .admin-dashboard input,
-        .admin-dashboard button {
+        .auth-section input,
+        .auth-section button {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -172,30 +172,25 @@
             color: #e0e0e0; /* Texte clair */
         }
 
-        .admin-dashboard button {
+        .auth-section button {
             background-color: #cc5500; /* Bouton orange plus foncé */
             cursor: pointer;
             font-size: 16px;
         }
 
-        .admin-dashboard button:hover {
+        .auth-section button:hover {
             background-color: #b34700; /* Orange encore plus foncé au survol */
         }
 
         /* Pied de page */
         footer {
             background-color: #cc5500; /* Orange plus foncé */
-            color: rgb(255, 0, 0);
+            color: white;
             text-align: center;
             padding: 10px 0;
             margin-top: 20px;
             position: relative;
             width: 100%;
-        }
-
-        /* Cacher le tableau de bord si non administrateur */
-        .admin-dashboard.hidden {
-            display: none;
         }
 
         /* Style pour le message d'erreur */
@@ -216,8 +211,8 @@
             <input type="text" placeholder="Rechercher des vidéos...">
         </div>
         <div class="user-buttons">
-            <a href="#signup">Inscription</a>
-            <a href="#login" id="loginButton">Connexion</a>
+            <a href="#signup" id="signupLink">Inscription</a>
+            <a href="#login" id="loginLink">Connexion</a>
         </div>
     </header>
 
@@ -227,13 +222,12 @@
             <a href="#videos">Vidéos</a>
             <a href="#photos">Photos</a>
             <a href="#projets">Projets</a>
-            <a href="#upload" id="adminLink">Uploader (Admin)</a>
         </div>
 
         <!-- Contenu principal -->
         <main>
             <!-- Section d'inscription -->
-            <section class="signup-section" id="signup">
+            <section class="auth-section" id="signup">
                 <h2>Inscription</h2>
                 <form id="signupForm">
                     <input type="text" id="username" placeholder="Nom d'utilisateur" required>
@@ -241,6 +235,18 @@
                     <input type="password" id="password" placeholder="Mot de passe" required>
                     <button type="submit">S'inscrire</button>
                 </form>
+                <p class="error-message" id="signupMessage"></p>
+            </section>
+
+            <!-- Section de connexion -->
+            <section class="auth-section" id="login" style="display: none;">
+                <h2>Connexion</h2>
+                <form id="loginForm">
+                    <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" required>
+                    <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                    <button type="submit">Se connecter</button>
+                </form>
+                <p class="error-message" id="loginMessage"></p>
             </section>
 
             <!-- Section de vidéos -->
@@ -256,94 +262,4 @@
                         <img src="chemin/vers/ton-image-video2.jpg" alt="Vidéo 2">
                         <p class="content-title">Titre de la vidéo 2</p>
                         <p>Petite description de la vidéo 2.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section de photos -->
-            <section id="photos">
-                <h2>Photos</h2>
-                <div class="content-section">
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-photo1.jpg" alt="Photo 1">
-                        <p class="content-title">Titre de la photo 1</p>
-                        <p>Petite description de la photo 1.</p>
-                    </div>
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-photo2.jpg" alt="Photo 2">
-                        <p class="content-title">Titre de la photo 2</p>
-                        <p>Petite description de la photo 2.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Section de projets -->
-            <section id="projets">
-                <h2>Projets</h2>
-                <div class="content-section">
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-projet1.jpg" alt="Projet 1">
-                        <p class="content-title">Titre du projet 1</p>
-                        <p>Petite description du projet 1.</p>
-                    </div>
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-projet2.jpg" alt="Projet 2">
-                        <p class="content-title">Titre du projet 2</p>
-                        <p>Petite description du projet 2.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Tableau de bord d'administration -->
-            <section id="upload">
-                <h2>Admin Dahsbord (Admin)</h2>
-                <div class="admin-dashboard" id="adminDashboard">
-                    <h3>Ajouter une nouvelle vidéo, photo ou projet</h3>
-                    <input type="text" placeholder="Titre" required>
-                    <input type="url" placeholder="URL de la vidéo ou de l'image" required>
-                    <select>
-                        <option value="video">Vidéo</option>
-                        <option value="photo">Photo</option>
-                        <option value="projet">Projet</option>
-                    </select>
-                    <button type="submit">Ajouter</button>
-                </div>
-                <p class="error-message" id="errorMessage"></p>
-            </section>
-        </main>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
-    </footer>
-
-    <script>
-        // Script d'authentification simple
-        const adminUsername = "admin"; // Votre nom d'utilisateur administrateur
-        const adminPassword = "admin123"; // Votre mot de passe administrateur
-
-        // Gérer l'inscription
-        document.getElementById("signupForm").addEventListener("submit", function (event) {
-            event.preventDefault();
-            alert("Inscription réussie ! Vous pouvez maintenant vous connecter.");
-            this.reset(); // Réinitialise le formulaire
-        });
-
-        // Gérer la connexion
-        document.getElementById("loginButton").addEventListener("click", function () {
-            const username = prompt("Entrez votre nom d'utilisateur:");
-            const password = prompt("Entrez votre mot de passe:");
-
-            if (username === adminUsername && password === adminPassword) {
-                alert("Connexion réussie !");
-                document.getElementById("adminDashboard").classList.remove("hidden");
-                document.getElementById("errorMessage").textContent = ""; // Efface les messages d'erreur
-            } else {
-                alert("Nom d'utilisateur ou mot de passe incorrect.");
-                document.getElementById("errorMessage").textContent = "Accès refusé. Veuillez réessayer.";
-            }
-        });
-    </script>
-</body>
-
-</html>
+                    </div
