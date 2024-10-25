@@ -12,6 +12,9 @@
             background-color: #121212; /* Fond noir */
             color: #e0e0e0; /* Texte gris clair */
             overflow-x: hidden;
+            max-width: 1920px; /* Largeur maximale */
+            height: 1080px; /* Hauteur maximale */
+            overflow: auto; /* Permet le défilement vertical */
         }
 
         /* En-tête principal */
@@ -109,6 +112,8 @@
             flex-grow: 1;
             padding: 20px;
             margin-left: 270px; /* Compense la barre latérale */
+            height: calc(100vh - 70px); /* Ajuste la hauteur pour le contenu principal */
+            overflow-y: auto; /* Permet le défilement vertical */
         }
 
         /* Section pour les vidéos */
@@ -172,6 +177,27 @@
             background-color: #b34700; /* Orange encore plus foncé au survol */
         }
 
+        /* Section d'inscription */
+        .signup-section {
+            background-color: #1e1e1e; /* Fond noir */
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+            max-width: 400px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .signup-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+            border-radius: 5px;
+            background-color: #333; /* Fond gris foncé */
+            color: #e0e0e0; /* Texte clair */
+        }
+
         /* Pied de page */
         footer {
             background-color: #cc5500; /* Orange plus foncé */
@@ -211,6 +237,17 @@
 
         <!-- Contenu principal -->
         <main>
+            <!-- Section d'inscription -->
+            <section class="signup-section">
+                <h2>Inscription</h2>
+                <form id="signupForm">
+                    <input type="text" id="username" placeholder="Nom d'utilisateur" required>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <input type="password" id="password" placeholder="Mot de passe" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </section>
+
             <!-- Section de vidéos populaires -->
             <section id="accueil">
                 <h2>Vidéos populaires</h2>
@@ -247,7 +284,7 @@
         <p>&copy; 2024 - DANYSTARKQC</p>
     </footer>
 
-    <!-- JavaScript pour uploader des vidéos -->
+    <!-- JavaScript pour gérer l'inscription et l'upload -->
     <script>
         // Exemple de gestion des permissions (Admin)
         const isAdmin = true; // Remplace par une vérification côté serveur
@@ -256,6 +293,16 @@
         if (!isAdmin) {
             adminSection.style.display = 'none';
         }
+
+        // Gestion du formulaire d'inscription
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            console.log(`Inscription : Nom d'utilisateur: ${username}, Email: ${email}`);
+            // Implémentation de l'inscription (côté serveur requise)
+        });
 
         // Gestion du formulaire d'upload
         document.getElementById('uploadForm').addEventListener('submit', function (e) {
@@ -266,4 +313,6 @@
             // Envoie la vidéo au serveur (implémentation backend requise)
             console.log(`Vidéo "${title}" prête à être uploadée :`, file);
         });
-    </script
+    </script>
+</body>
+</html>
