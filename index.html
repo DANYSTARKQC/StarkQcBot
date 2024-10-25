@@ -189,7 +189,32 @@
             margin-top: 20px;
         }
 
-        /* Styles pour les boutons de réseaux sociaux */
+        /* Styles pour le profil utilisateur */
+        .profile-section {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 5px;
+            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+        }
+
+        .profile-section input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+            border-radius: 5px;
+            background-color: #333; /* Fond gris foncé */
+            color: #e0e0e0; /* Texte clair */
+        }
+
+        .profile-section img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
         .social-buttons {
             margin-top: 10px;
             display: flex;
@@ -251,7 +276,7 @@
             <a href="#photos">Photos</a>
             <a href="#projets">Projets</a>
             <a href="#streaming">Streaming</a>
-            <a href="#social">Social</a>
+            <a href="#profile">Profil</a>
         </div>
 
         <!-- Contenu principal -->
@@ -265,12 +290,8 @@
                     <input type="password" id="password" placeholder="Mot de passe" required>
                     <button type="submit">S'inscrire</button>
                 </form>
-                <div class="social-buttons">
-                    <button class="facebook">Se connecter avec Facebook</button>
-                    <button class="twitter">Se connecter avec Twitter</button>
-                    <button class="google">Se connecter avec Google</button>
-                </div>
                 <p class="error-message" id="signupMessage"></p>
+                <p>Déjà un compte ? <a href="#" id="loginLink">Connectez-vous ici</a></p>
             </section>
 
             <!-- Section de connexion -->
@@ -287,6 +308,17 @@
                     <button class="google">Se connecter avec Google</button>
                 </div>
                 <p class="error-message" id="loginMessage"></p>
+                <p>Pas de compte ? <a href="#" id="signupLink">Inscrivez-vous ici</a></p>
+            </section>
+
+            <!-- Section de profil utilisateur -->
+            <section class="profile-section" id="profile" style="display: none;">
+                <h2>Mon Profil</h2>
+                <img id="profileImage" src="https://via.placeholder.com/100" alt="Photo de profil">
+                <input type="text" id="profileUsername" placeholder="Nom d'utilisateur" required>
+                <input type="text" id="profileDescription" placeholder="Description">
+                <button id="saveProfileButton">Enregistrer le Profil</button>
+                <p class="error-message" id="profileMessage"></p>
             </section>
 
             <!-- Section d'ajout d'éléments -->
@@ -367,6 +399,9 @@
             document.getElementById('loginMessage').innerText = 'Connexion réussie !';
             // Réinitialiser le formulaire
             this.reset();
+            // Afficher la section du profil après connexion
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('profile').style.display = 'block';
         });
 
         // Gestion de l'ajout d'éléments
@@ -399,6 +434,17 @@
             document.getElementById('addItemMessage').innerText = 'Élément ajouté avec succès !';
         });
 
+        // Gestion de l'enregistrement du profil
+        document.getElementById('saveProfileButton').addEventListener('click', function () {
+            const profileUsername = document.getElementById('profileUsername').value;
+            const profileDescription = document.getElementById('profileDescription').value;
+
+            // Simuler l'enregistrement du profil
+            document.getElementById('profileMessage').innerText = 'Profil mis à jour avec succès !';
+            // Mettre à jour l'affichage du nom d'utilisateur
+            document.getElementById('profileImage').alt = profileUsername; // Mettre à jour l'info de la photo
+        });
+
         // Navigation entre inscription et connexion
         document.getElementById('signupLink').addEventListener('click', function () {
             document.getElementById('signup').style.display = 'block';
@@ -409,6 +455,9 @@
             document.getElementById('signup').style.display = 'none';
             document.getElementById('login').style.display = 'block';
         });
+
+        // Afficher le profil
+        document.getElementById('profile').style.display = 'none'; // Assurez-vous que le profil est caché par défaut
     </script>
 </body>
 
