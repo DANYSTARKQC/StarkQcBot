@@ -151,35 +151,23 @@
             color: #ff8c00; /* Texte orange pour les titres */
         }
 
-        /* Formulaire d'inscription et de connexion */
-        .auth-section {
-            max-width: 400px;
-            margin: 20px auto;
+        /* Formulaire d'ajout d'éléments */
+        .add-item-section {
+            margin-top: 20px;
+            background-color: #1e1e1e;
             padding: 20px;
-            background-color: #1e1e1e; /* Fond noir */
             border-radius: 5px;
             border: 1px solid #cc5500; /* Bordure orange plus foncé */
         }
 
-        .auth-section input,
-        .auth-section button {
-            width: 100%;
+        .add-item-section input {
+            width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 10px;
             border: 1px solid #cc5500; /* Bordure orange plus foncé */
             border-radius: 5px;
             background-color: #333; /* Fond gris foncé */
             color: #e0e0e0; /* Texte clair */
-        }
-
-        .auth-section button {
-            background-color: #cc5500; /* Bouton orange plus foncé */
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .auth-section button:hover {
-            background-color: #b34700; /* Orange encore plus foncé au survol */
         }
 
         /* Pied de page */
@@ -249,54 +237,42 @@
                 <p class="error-message" id="loginMessage"></p>
             </section>
 
+            <!-- Section d'ajout d'éléments -->
+            <section class="add-item-section">
+                <h2>Ajouter du contenu</h2>
+                <input type="text" id="itemTitle" placeholder="Titre" required>
+                <input type="text" id="itemDescription" placeholder="Description" required>
+                <input type="url" id="itemImage" placeholder="URL de l'image" required>
+                <select id="itemType">
+                    <option value="video">Vidéo</option>
+                    <option value="photo">Photo</option>
+                    <option value="projet">Projet</option>
+                </select>
+                <button id="addItemButton">Ajouter</button>
+                <p class="error-message" id="addItemMessage"></p>
+            </section>
+
             <!-- Section de vidéos -->
             <section id="videos">
                 <h2>Vidéos</h2>
-                <div class="content-section">
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-video1.jpg" alt="Vidéo 1">
-                        <p class="content-title">Titre de la vidéo 1</p>
-                        <p>Petite description de la vidéo 1.</p>
-                    </div>
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-video2.jpg" alt="Vidéo 2">
-                        <p class="content-title">Titre de la vidéo 2</p>
-                        <p>Petite description de la vidéo 2.</p>
-                    </div>
+                <div class="content-section" id="videoContent">
+                    <!-- Les vidéos ajoutées apparaîtront ici -->
                 </div>
             </section>
 
             <!-- Section de photos -->
             <section id="photos">
                 <h2>Photos</h2>
-                <div class="content-section">
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-photo1.jpg" alt="Photo 1">
-                        <p class="content-title">Titre de la photo 1</p>
-                        <p>Petite description de la photo 1.</p>
-                    </div>
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-photo2.jpg" alt="Photo 2">
-                        <p class="content-title">Titre de la photo 2</p>
-                        <p>Petite description de la photo 2.</p>
-                    </div>
+                <div class="content-section" id="photoContent">
+                    <!-- Les photos ajoutées apparaîtront ici -->
                 </div>
             </section>
 
             <!-- Section de projets -->
             <section id="projets">
                 <h2>Projets</h2>
-                <div class="content-section">
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-projet1.jpg" alt="Projet 1">
-                        <p class="content-title">Titre du projet 1</p>
-                        <p>Petite description du projet 1.</p>
-                    </div>
-                    <div class="content-card">
-                        <img src="chemin/vers/ton-image-projet2.jpg" alt="Projet 2">
-                        <p class="content-title">Titre du projet 2</p>
-                        <p>Petite description du projet 2.</p>
-                    </div>
+                <div class="content-section" id="projectContent">
+                    <!-- Les projets ajoutés apparaîtront ici -->
                 </div>
             </section>
         </main>
@@ -321,7 +297,7 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
 
-            // Simuler l'inscription (à remplacer par une vraie logique d'inscription)
+            // Simuler l'inscription
             if (username && email && password) {
                 signupMessage.textContent = "Inscription réussie !";
                 signupMessage.style.color = "green";
@@ -337,7 +313,7 @@
             const username = document.getElementById('loginUsername').value;
             const password = document.getElementById('loginPassword').value;
 
-            // Simuler la connexion (à remplacer par une vraie logique de connexion)
+            // Simuler la connexion
             if (username && password) {
                 loginMessage.textContent = "Connexion réussie !";
                 loginMessage.style.color = "green";
@@ -357,6 +333,37 @@
         signupLink.addEventListener('click', function () {
             document.getElementById('signup').style.display = 'block';
             document.getElementById('login').style.display = 'none';
+        });
+
+        // Ajouter un élément à la section appropriée
+        document.getElementById('addItemButton').addEventListener('click', function () {
+            const title = document.getElementById('itemTitle').value;
+            const description = document.getElementById('itemDescription').value;
+            const imageUrl = document.getElementById('itemImage').value;
+            const itemType = document.getElementById('itemType').value;
+            const addItemMessage = document.getElementById('addItemMessage');
+
+            if (title && description && imageUrl) {
+                addItemMessage.textContent = ""; // Réinitialiser le message d'erreur
+
+                const contentSection = document.getElementById(itemType + 'Content');
+                const card = document.createElement('div');
+                card.className = 'content-card';
+                card.innerHTML = `
+                    <img src="${imageUrl}" alt="${title}">
+                    <p class="content-title">${title}</p>
+                    <p>${description}</p>
+                `;
+                contentSection.appendChild(card);
+
+                // Réinitialiser les champs
+                document.getElementById('itemTitle').value = '';
+                document.getElementById('itemDescription').value = '';
+                document.getElementById('itemImage').value = '';
+            } else {
+                addItemMessage.textContent = "Veuillez remplir tous les champs.";
+                addItemMessage.style.color = "red";
+            }
         });
     </script>
 </body>
