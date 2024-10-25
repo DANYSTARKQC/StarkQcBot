@@ -3,30 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page HTML Basique</title>
+    <title>Page HTML avec Photos, Vidéos et Liens</title>
 </head>
 <body>
     <header>
-        <h1>Bienvenue sur mon site que je vais faire de publication et metre des projet et autre </h1>
+        <h1>Bienvenue sur ma page web</h1>
+        <nav>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#contenu">Contenu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <section>
+        <section id="introduction">
             <h2>Introduction</h2>
-            <p>Ceci est une page HTML de base pour illustrer la structure d'un document HTML.</p>
+            <p>Ceci est une page HTML enrichie avec des images, des vidéos et des liens.</p>
         </section>
 
-        <section>
+        <section id="contenu">
             <h2>Contenu</h2>
-            <p>Voici un exemple de liste :</p>
+            
+            <h3>Images</h3>
+            <p>Voici une image d'exemple :</p>
+            <img src="chemin/vers/ton-image.jpg" alt="Description de l'image" width="400" height="300">
+            
+            <h3>Vidéos</h3>
+            <p>Voici une vidéo d'exemple :</p>
+            <video width="400" height="300" controls>
+                <source src="chemin/vers/ta-video.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la lecture vidéo.
+            </video>
+
+            <h3>Liens</h3>
+            <p>Voici quelques liens utiles :</p>
             <ul>
-                <li>Élément 1</li>
-                <li>Élément 2</li>
-                <li>Élément 3</li>
+                <li><a href="https://www.example.com" target="_blank">Visiter Example.com</a></li>
+                <li><a href="https://www.wikipedia.org" target="_blank">Visiter Wikipedia</a></li>
             </ul>
         </section>
 
-        <section>
+        <section id="contact">
             <h2>Formulaire de contact</h2>
             <form action="#" method="post">
                 <label for="nom">Nom :</label>
