@@ -350,8 +350,8 @@
                     <strong>Nom d'utilisateur:</strong> <span id="displayUsername">Nom d'utilisateur</span>
                 </div>
                 <div class="social-buttons">
-                    <button>Modifier le Profil</button>
-                    <button>Déconnexion</button>
+                    <button onclick="showSection('signup')">Modifier le Profil</button>
+                    <button onclick="logout()">Déconnexion</button>
                 </div>
             </section>
         </main>
@@ -373,7 +373,8 @@
         // Gestion de l'inscription
         document.getElementById('signupForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            // Logique d'inscription ici
+            const username = document.getElementById('username').value;
+            // Logique d'inscription ici (remplacez cette section par une logique d'inscription réelle)
             document.getElementById('signupMessage').textContent = "Inscription réussie!";
             showSection('login'); // Redirige vers la connexion après l'inscription
         });
@@ -381,12 +382,19 @@
         // Gestion de la connexion
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault();
-            // Logique de connexion ici
             const username = document.getElementById('loginUsername').value;
+            // Logique de connexion ici (remplacez cette section par une logique de connexion réelle)
             document.getElementById('displayUsername').textContent = username;
             document.getElementById('profileLink').style.display = 'inline'; // Affiche le lien du profil
             showSection('profile'); // Redirige vers la page de profil après la connexion
         });
+
+        // Fonction de déconnexion
+        function logout() {
+            document.getElementById('displayUsername').textContent = "Nom d'utilisateur";
+            document.getElementById('profileLink').style.display = 'none'; // Cache le lien du profil
+            showSection('login'); // Redirige vers la connexion
+        }
 
         // Affichage de la section d'accueil par défaut
         showSection('videos'); // Montre la section Vidéos par défaut
