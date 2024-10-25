@@ -113,16 +113,16 @@
             overflow-y: auto; /* Permet le défilement vertical */
         }
 
-        /* Section pour les vidéos */
-        .video-section {
+        /* Section pour les vidéos, photos, et projets */
+        .content-section {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 20px;
         }
 
-        .video-card {
-            background-color: #1e1e1e; /* Fond noir pour les cartes vidéo */
+        .content-card {
+            background-color: #1e1e1e; /* Fond noir pour les cartes */
             border: 1px solid #cc5500; /* Bordure orange plus foncé */
             border-radius: 5px;
             padding: 15px;
@@ -130,17 +130,17 @@
             cursor: pointer;
         }
 
-        .video-card img {
+        .content-card img {
             width: 100%;
             height: auto;
             border-radius: 5px;
         }
 
-        .video-title {
+        .content-title {
             font-size: 18px;
             font-weight: bold;
             margin-top: 10px;
-            color: #ff8c00; /* Texte orange pour les titres de vidéos */
+            color: #ff8c00; /* Texte orange pour les titres */
         }
 
         /* Tableau de bord d'administration */
@@ -174,27 +174,6 @@
             background-color: #b34700; /* Orange encore plus foncé au survol */
         }
 
-        /* Section d'inscription */
-        .signup-section {
-            background-color: #1e1e1e; /* Fond noir */
-            padding: 20px;
-            border-radius: 5px;
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
-            max-width: 400px;
-            margin: 20px auto;
-            text-align: center;
-        }
-
-        .signup-section input {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
-            border-radius: 5px;
-            background-color: #333; /* Fond gris foncé */
-            color: #e0e0e0; /* Texte clair */
-        }
-
         /* Pied de page */
         footer {
             background-color: #cc5500; /* Orange plus foncé */
@@ -224,11 +203,9 @@
     <div class="page-container">
         <!-- Barre latérale -->
         <div class="sidebar">
-            <a href="#accueil">Accueil</a>
-            <a href="#en-direct">En direct</a>
-            <a href="#tendances">Tendances</a>
-            <a href="#abonnements">Abonnements</a>
-            <a href="#bibliotheque">Bibliothèque</a>
+            <a href="#videos">Vidéos</a>
+            <a href="#photos">Photos</a>
+            <a href="#projets">Projets</a>
             <a href="#upload">Uploader (Admin)</a>
         </div>
 
@@ -245,34 +222,68 @@
                 </form>
             </section>
 
-            <!-- Section de vidéos populaires -->
-            <section id="accueil">
-                <h2>Vidéos populaires</h2>
-                <div class="video-section">
-                    <!-- Carte de vidéo 1 -->
-                    <div class="video-card">
-                        <img src="chemin/vers/ton-image1.jpg" alt="Vidéo 1">
-                        <p class="video-title">Titre de la vidéo 1</p>
+            <!-- Section de vidéos -->
+            <section id="videos">
+                <h2>Vidéos</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-video1.jpg" alt="Vidéo 1">
+                        <p class="content-title">Titre de la vidéo 1</p>
                         <p>Petite description de la vidéo 1.</p>
                     </div>
-
-                    <!-- Carte de vidéo 2 -->
-                    <div class="video-card">
-                        <img src="chemin/vers/ton-image2.jpg" alt="Vidéo 2">
-                        <p class="video-title">Titre de la vidéo 2</p>
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-video2.jpg" alt="Vidéo 2">
+                        <p class="content-title">Titre de la vidéo 2</p>
                         <p>Petite description de la vidéo 2.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Tableau de bord d'administration -->
-            <section id="upload" class="admin-dashboard">
-                <h2>Uploader une nouvelle vidéo</h2>
-                <form id="uploadForm">
-                    <input type="text" id="videoTitle" placeholder="Titre de la vidéo" required>
-                    <input type="url" id="videoUrl" placeholder="URL de la vidéo" required>
-                    <button type="submit">Uploader</button>
-                </form>
+            <!-- Section de photos -->
+            <section id="photos">
+                <h2>Photos</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-photo1.jpg" alt="Photo 1">
+                        <p class="content-title">Titre de la photo 1</p>
+                        <p>Petite description de la photo 1.</p>
+                    </div>
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-photo2.jpg" alt="Photo 2">
+                        <p class="content-title">Titre de la photo 2</p>
+                        <p>Petite description de la photo 2.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section de projets -->
+            <section id="projets">
+                <h2>Projets</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-projet1.jpg" alt="Projet 1">
+                        <p class="content-title">Titre du projet 1</p>
+                        <p>Petite description du projet 1.</p>
+                    </div>
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-projet2.jpg" alt="Projet 2">
+                        <p class="content-title">Titre du projet 2</p>
+                        <p>Petite description du projet 2.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section d'upload (Admin) -->
+            <section id="upload">
+                <h2>Uploader un nouveau contenu</h2>
+                <div class="admin-dashboard">
+                    <form id="uploadForm">
+                        <input type="text" id="title" placeholder="Titre" required>
+                        <input type="text" id="description" placeholder="Description" required>
+                        <input type="file" id="file" accept="video/*, image/*" required>
+                        <button type="submit">Uploader</button>
+                    </form>
+                </div>
             </section>
         </main>
     </div>
@@ -280,5 +291,21 @@
     <footer>
         <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        // Gérer la soumission du formulaire d'inscription
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Logique d'inscription ici
+            alert("Inscription réussie !");
+        });
+
+        // Gérer la soumission du formulaire d'upload
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Logique d'upload ici
+            alert("Contenu téléchargé avec succès !");
+        });
+    </script>
 </body>
 </html>
