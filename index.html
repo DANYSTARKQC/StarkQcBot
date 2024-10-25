@@ -262,4 +262,103 @@
                         <img src="chemin/vers/ton-image-video2.jpg" alt="Vidéo 2">
                         <p class="content-title">Titre de la vidéo 2</p>
                         <p>Petite description de la vidéo 2.</p>
-                    </div
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section de photos -->
+            <section id="photos">
+                <h2>Photos</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-photo1.jpg" alt="Photo 1">
+                        <p class="content-title">Titre de la photo 1</p>
+                        <p>Petite description de la photo 1.</p>
+                    </div>
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-photo2.jpg" alt="Photo 2">
+                        <p class="content-title">Titre de la photo 2</p>
+                        <p>Petite description de la photo 2.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section de projets -->
+            <section id="projets">
+                <h2>Projets</h2>
+                <div class="content-section">
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-projet1.jpg" alt="Projet 1">
+                        <p class="content-title">Titre du projet 1</p>
+                        <p>Petite description du projet 1.</p>
+                    </div>
+                    <div class="content-card">
+                        <img src="chemin/vers/ton-image-projet2.jpg" alt="Projet 2">
+                        <p class="content-title">Titre du projet 2</p>
+                        <p>Petite description du projet 2.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        // Logique de gestion de l'inscription et de la connexion
+        const signupForm = document.getElementById('signupForm');
+        const loginForm = document.getElementById('loginForm');
+        const signupMessage = document.getElementById('signupMessage');
+        const loginMessage = document.getElementById('loginMessage');
+        const loginLink = document.getElementById('loginLink');
+        const signupLink = document.getElementById('signupLink');
+
+        signupForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simuler l'inscription (à remplacer par une vraie logique d'inscription)
+            if (username && email && password) {
+                signupMessage.textContent = "Inscription réussie !";
+                signupMessage.style.color = "green";
+                signupForm.reset();
+            } else {
+                signupMessage.textContent = "Veuillez remplir tous les champs.";
+                signupMessage.style.color = "red";
+            }
+        });
+
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Simuler la connexion (à remplacer par une vraie logique de connexion)
+            if (username && password) {
+                loginMessage.textContent = "Connexion réussie !";
+                loginMessage.style.color = "green";
+                loginForm.reset();
+            } else {
+                loginMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
+                loginMessage.style.color = "red";
+            }
+        });
+
+        // Changer entre les sections d'inscription et de connexion
+        loginLink.addEventListener('click', function () {
+            document.getElementById('signup').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+        });
+
+        signupLink.addEventListener('click', function () {
+            document.getElementById('signup').style.display = 'block';
+            document.getElementById('login').style.display = 'none';
+        });
+    </script>
+</body>
+
+</html>
