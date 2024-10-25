@@ -160,7 +160,8 @@
             border: 1px solid #cc5500; /* Bordure orange plus foncé */
         }
 
-        .add-item-section input, .add-item-section select {
+        .add-item-section input,
+        .add-item-section select {
             width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 10px;
@@ -186,6 +187,45 @@
             color: red;
             text-align: center;
             margin-top: 20px;
+        }
+
+        /* Styles pour les boutons de réseaux sociaux */
+        .social-buttons {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-buttons button {
+            background-color: #3b5998; /* Couleur Facebook */
+            border: none;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .social-buttons button:hover {
+            background-color: #4e69a2; /* Couleur Facebook au survol */
+        }
+
+        .social-buttons .twitter {
+            background-color: #1da1f2; /* Couleur Twitter */
+        }
+
+        .social-buttons .twitter:hover {
+            background-color: #1a8cd8; /* Couleur Twitter au survol */
+        }
+
+        .social-buttons .google {
+            background-color: #db4437; /* Couleur Google */
+        }
+
+        .social-buttons .google:hover {
+            background-color: #c13527; /* Couleur Google au survol */
         }
     </style>
 </head>
@@ -225,6 +265,11 @@
                     <input type="password" id="password" placeholder="Mot de passe" required>
                     <button type="submit">S'inscrire</button>
                 </form>
+                <div class="social-buttons">
+                    <button class="facebook">Se connecter avec Facebook</button>
+                    <button class="twitter">Se connecter avec Twitter</button>
+                    <button class="google">Se connecter avec Google</button>
+                </div>
                 <p class="error-message" id="signupMessage"></p>
             </section>
 
@@ -236,21 +281,25 @@
                     <input type="password" id="loginPassword" placeholder="Mot de passe" required>
                     <button type="submit">Se connecter</button>
                 </form>
+                <div class="social-buttons">
+                    <button class="facebook">Se connecter avec Facebook</button>
+                    <button class="twitter">Se connecter avec Twitter</button>
+                    <button class="google">Se connecter avec Google</button>
+                </div>
                 <p class="error-message" id="loginMessage"></p>
             </section>
 
             <!-- Section d'ajout d'éléments -->
             <section class="add-item-section">
-                <h2>Ajouter du contenu</h2>
-                <input type="text" id="itemTitle" placeholder="Titre" required>
-                <input type="text" id="itemDescription" placeholder="Description" required>
-                <input type="url" id="itemImage" placeholder="URL de l'image" required>
+                <h2>Ajouter Contenu</h2>
                 <select id="itemType">
                     <option value="video">Vidéo</option>
                     <option value="photo">Photo</option>
                     <option value="projet">Projet</option>
                 </select>
-                <input type="file" id="itemFile" placeholder="Télécharger un fichier" required>
+                <input type="text" id="itemTitle" placeholder="Titre" required>
+                <input type="text" id="itemDescription" placeholder="Description" required>
+                <input type="text" id="itemImage" placeholder="URL de l'image" required>
                 <button id="addItemButton">Ajouter</button>
                 <p class="error-message" id="addItemMessage"></p>
             </section>
