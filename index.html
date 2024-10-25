@@ -13,7 +13,7 @@
             color: #e0e0e0; /* Texte gris clair */
         }
 
-        /* Barre de navigation en haut */
+        /* En-tête principal */
         header {
             background-color: #cc5500; /* Orange plus foncé */
             color: white;
@@ -21,16 +21,27 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
         }
 
         header h1 {
             margin: 0;
+            font-size: 24px;
         }
 
         .search-bar {
             flex-grow: 1;
             margin: 0 20px;
+            max-width: 600px;
         }
 
         .search-bar input {
@@ -42,26 +53,61 @@
             color: #e0e0e0;
         }
 
-        nav {
+        .user-buttons {
             display: flex;
+            align-items: center;
         }
 
-        nav a {
+        .user-buttons button {
+            background-color: #cc5500;
+            border: none;
             color: white;
-            text-decoration: none;
-            margin-left: 15px;
-            font-size: 16px;
+            padding: 10px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        nav a:hover {
-            text-decoration: underline;
+        .user-buttons button:hover {
+            background-color: #b34700;
         }
 
-        /* Conteneur principal */
-        main {
+        /* Conteneur de la page principale */
+        .page-container {
+            display: flex;
+            margin-top: 70px; /* Compense la barre de navigation fixe */
+        }
+
+        /* Barre latérale */
+        .sidebar {
+            width: 250px;
+            background-color: #1e1e1e;
             padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: fixed;
+            top: 70px; /* Aligne sous l'en-tête */
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            color: #e0e0e0;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        /* Contenu principal */
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            margin-left: 270px; /* Compense la barre latérale */
         }
 
         /* Section pour les vidéos */
@@ -136,56 +182,62 @@
 </head>
 <body>
     <header>
-        <h1>DANYSTARKQC</h1>
+        <div class="logo">
+            <h1>DANYSTARKQC</h1>
+        </div>
         <div class="search-bar">
             <input type="text" placeholder="Rechercher des vidéos...">
         </div>
-        <nav>
-            <a href="#accueil">Accueil</a>
-            <a href="#en-direct">En direct</a>
-            <a href="#upload">Uploader (Admin)</a>
-        </nav>
+        <div class="user-buttons">
+            <button>Connexion</button>
+            <button>Profil</button>
+        </div>
     </header>
 
-    <main>
-        <!-- Section de vidéos populaires -->
-        <section id="accueil">
-            <h2>Vidéos populaires</h2>
-            <div class="video-section">
-                <!-- Carte de vidéo 1 -->
-                <div class="video-card">
-                    <img src="chemin/vers/ton-image1.jpg" alt="Vidéo 1">
-                    <p class="video-title">Titre de la vidéo 1</p>
-                    <p>Petite description de la vidéo 1.</p>
+    <div class="page-container">
+        <!-- Barre latérale -->
+        <div class="sidebar">
+            <a href="#accueil">Accueil</a>
+            <a href="#en-direct">En direct</a>
+            <a href="#tendances">Tendances</a>
+            <a href="#abonnements">Abonnements</a>
+            <a href="#bibliotheque">Bibliothèque</a>
+            <a href="#upload">Uploader (Admin)</a>
+        </div>
+
+        <!-- Contenu principal -->
+        <main>
+            <!-- Section de vidéos populaires -->
+            <section id="accueil">
+                <h2>Vidéos populaires</h2>
+                <div class="video-section">
+                    <!-- Carte de vidéo 1 -->
+                    <div class="video-card">
+                        <img src="chemin/vers/ton-image1.jpg" alt="Vidéo 1">
+                        <p class="video-title">Titre de la vidéo 1</p>
+                        <p>Petite description de la vidéo 1.</p>
+                    </div>
+
+                    <!-- Carte de vidéo 2 -->
+                    <div class="video-card">
+                        <img src="chemin/vers/ton-image2.jpg" alt="Vidéo 2">
+                        <p class="video-title">Titre de la vidéo 2</p>
+                        <p>Petite description de la vidéo 2.</p>
+                    </div>
                 </div>
+            </section>
 
-                <!-- Carte de vidéo 2 -->
-                <div class="video-card">
-                    <img src="chemin/vers/ton-image2.jpg" alt="Vidéo 2">
-                    <p class="video-title">Titre de la vidéo 2</p>
-                    <p>Petite description de la vidéo 2.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section en direct -->
-        <section id="en-direct">
-            <h2>En direct maintenant</h2>
-            <div class="video-section">
-                <!-- Similaire à la section des vidéos populaires -->
-            </div>
-        </section>
-
-        <!-- Tableau de bord d'administration -->
-        <section id="upload" class="admin-dashboard">
-            <h2>Uploader une nouvelle vidéo</h2>
-            <form id="uploadForm">
-                <input type="text" id="videoTitle" placeholder="Titre de la vidéo" required>
-                <input type="file" id="videoFile" accept="video/*" required>
-                <button type="submit">Uploader la vidéo</button>
-            </form>
-        </section>
-    </main>
+            <!-- Tableau de bord d'administration -->
+            <section id="upload" class="admin-dashboard">
+                <h2>Uploader une nouvelle vidéo</h2>
+                <form id="uploadForm">
+                    <input type="text" id="videoTitle" placeholder="Titre de la vidéo" required>
+                    <input type="file" id="videoFile" accept="video/*" required>
+                    <button type="submit">Uploader la vidéo</button>
+                </form>
+            </section>
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 - DANYSTARKQC</p>
