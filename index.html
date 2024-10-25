@@ -12,9 +12,6 @@
             background-color: #121212; /* Fond noir */
             color: #e0e0e0; /* Texte gris clair */
             overflow-x: hidden;
-            max-width: 1920px; /* Largeur maximale */
-            height: 1080px; /* Hauteur maximale */
-            overflow: auto; /* Permet le défilement vertical */
         }
 
         /* En-tête principal */
@@ -273,46 +270,15 @@
                 <h2>Uploader une nouvelle vidéo</h2>
                 <form id="uploadForm">
                     <input type="text" id="videoTitle" placeholder="Titre de la vidéo" required>
-                    <input type="file" id="videoFile" accept="video/*" required>
-                    <button type="submit">Uploader la vidéo</button>
+                    <input type="url" id="videoUrl" placeholder="URL de la vidéo" required>
+                    <button type="submit">Uploader</button>
                 </form>
             </section>
         </main>
     </div>
 
     <footer>
-        <p>&copy; 2024 - DANYSTARKQC</p>
+        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
     </footer>
-
-    <!-- JavaScript pour gérer l'inscription et l'upload -->
-    <script>
-        // Exemple de gestion des permissions (Admin)
-        const isAdmin = true; // Remplace par une vérification côté serveur
-        const adminSection = document.getElementById('upload');
-
-        if (!isAdmin) {
-            adminSection.style.display = 'none';
-        }
-
-        // Gestion du formulaire d'inscription
-        document.getElementById('signupForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            console.log(`Inscription : Nom d'utilisateur: ${username}, Email: ${email}`);
-            // Implémentation de l'inscription (côté serveur requise)
-        });
-
-        // Gestion du formulaire d'upload
-        document.getElementById('uploadForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const title = document.getElementById('videoTitle').value;
-            const file = document.getElementById('videoFile').files[0];
-            
-            // Envoie la vidéo au serveur (implémentation backend requise)
-            console.log(`Vidéo "${title}" prête à être uploadée :`, file);
-        });
-    </script>
 </body>
 </html>
