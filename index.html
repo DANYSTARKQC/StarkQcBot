@@ -10,14 +10,14 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #121212; /* Fond noir */
-            color: #e0e0e0; /* Texte gris clair */
+            background-color: #121212;
+            color: #e0e0e0;
             overflow-x: hidden;
         }
 
         /* En-tête principal */
         header {
-            background-color: #cc5500; /* Orange plus foncé */
+            background-color: #cc5500;
             color: white;
             padding: 10px 20px;
             display: flex;
@@ -61,7 +61,7 @@
         }
 
         .user-buttons a {
-            background-color: #cc5500; /* Orange plus foncé */
+            background-color: #cc5500;
             border: none;
             color: white;
             padding: 10px 15px;
@@ -78,18 +78,18 @@
         /* Conteneur de la page principale */
         .page-container {
             display: flex;
-            margin-top: 70px; /* Compense la barre de navigation fixe */
+            margin-top: 70px;
         }
 
         /* Barre latérale */
         .sidebar {
-            width: 250px;
+            width: 200px;
             background-color: #1e1e1e;
             padding: 20px;
             box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-            height: calc(100vh - 70px); /* Ajuste la hauteur pour ne pas dépasser l'en-tête */
+            height: calc(100vh - 70px);
             position: fixed;
-            top: 70px; /* Aligne sous l'en-tête */
+            top: 70px;
             overflow-y: auto;
         }
 
@@ -111,9 +111,9 @@
         main {
             flex-grow: 1;
             padding: 20px;
-            margin-left: 270px; /* Compense la barre latérale */
-            height: calc(100vh - 70px); /* Ajuste la hauteur pour le contenu principal */
-            overflow-y: auto; /* Permet le défilement vertical */
+            margin-left: 220px;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
         }
 
         /* Section pour les vidéos, photos, et projets */
@@ -125,8 +125,8 @@
         }
 
         .content-card {
-            background-color: #1e1e1e; /* Fond noir pour les cartes */
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+            background-color: #1e1e1e;
+            border: 1px solid #cc5500;
             border-radius: 5px;
             padding: 15px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -148,7 +148,7 @@
             font-size: 18px;
             font-weight: bold;
             margin-top: 10px;
-            color: #ff8c00; /* Texte orange pour les titres */
+            color: #ff8c00;
         }
 
         /* Formulaire d'ajout d'éléments */
@@ -157,7 +157,7 @@
             background-color: #1e1e1e;
             padding: 20px;
             border-radius: 5px;
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+            border: 1px solid #cc5500;
         }
 
         .add-item-section input,
@@ -165,15 +165,15 @@
             width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
+            border: 1px solid #cc5500;
             border-radius: 5px;
-            background-color: #333; /* Fond gris foncé */
-            color: #e0e0e0; /* Texte clair */
+            background-color: #333;
+            color: #e0e0e0;
         }
 
         /* Pied de page */
         footer {
-            background-color: #cc5500; /* Orange plus foncé */
+            background-color: #cc5500;
             color: white;
             text-align: center;
             padding: 10px 0;
@@ -187,70 +187,6 @@
             color: red;
             text-align: center;
             margin-top: 20px;
-        }
-
-        /* Styles pour le profil utilisateur */
-        .profile-section {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-radius: 5px;
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
-        }
-
-        .profile-section input {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #cc5500; /* Bordure orange plus foncé */
-            border-radius: 5px;
-            background-color: #333; /* Fond gris foncé */
-            color: #e0e0e0; /* Texte clair */
-        }
-
-        .profile-section img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
-
-        .social-buttons {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .social-buttons button {
-            background-color: #3b5998; /* Couleur Facebook */
-            border: none;
-            color: white;
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .social-buttons button:hover {
-            background-color: #4e69a2; /* Couleur Facebook au survol */
-        }
-
-        .social-buttons .twitter {
-            background-color: #1da1f2; /* Couleur Twitter */
-        }
-
-        .social-buttons .twitter:hover {
-            background-color: #1a8cd8; /* Couleur Twitter au survol */
-        }
-
-        .social-buttons .google {
-            background-color: #db4437; /* Couleur Google */
-        }
-
-        .social-buttons .google:hover {
-            background-color: #c13527; /* Couleur Google au survol */
         }
     </style>
 </head>
@@ -286,71 +222,75 @@
                 <h2>Inscription</h2>
                 <form id="signupForm">
                     <input type="text" id="username" placeholder="Nom d'utilisateur" required>
-                    <input type="email" id="email" placeholder="E-mail" required>
+                    <input type="email" id="email" placeholder="Email" required>
                     <input type="password" id="password" placeholder="Mot de passe" required>
                     <button type="submit">S'inscrire</button>
                 </form>
-                <div id="signupMessage" class="error-message"></div>
+                <p class="error-message" id="signupMessage"></p>
+                <p>Déjà un compte ? <a href="#" id="loginLink">Connectez-vous ici</a></p>
             </section>
 
             <!-- Section de connexion -->
-            <section class="auth-section" id="login">
+            <section class="auth-section" id="login" style="display: none;">
                 <h2>Connexion</h2>
                 <form id="loginForm">
                     <input type="text" id="loginUsername" placeholder="Nom d'utilisateur" required>
                     <input type="password" id="loginPassword" placeholder="Mot de passe" required>
                     <button type="submit">Se connecter</button>
                 </form>
-                <div id="loginMessage" class="error-message"></div>
+                <p class="error-message" id="loginMessage"></p>
+                <p>Pas de compte ? <a href="#" id="signupLink">Inscrivez-vous ici</a></p>
             </section>
 
             <!-- Section de profil utilisateur -->
-            <section class="profile-section" id="profile">
-                <h2>Profil de l'utilisateur</h2>
-                <img src="profile.jpg" alt="Profil Utilisateur">
-                <input type="text" id="profileUsername" placeholder="Nom d'utilisateur" required>
-                <input type="email" id="profileEmail" placeholder="E-mail" required>
-                <button id="updateProfileButton">Mettre à jour le profil</button>
-                <div id="profileMessage" class="error-message"></div>
-
-                <div class="social-buttons">
-                    <button class="facebook">Se connecter avec Facebook</button>
-                    <button class="twitter">Se connecter avec Twitter</button>
-                    <button class="google">Se connecter avec Google</button>
-                </div>
+            <section id="profile" style="display: none;">
+                <h2>Mon Profil</h2>
+                <p>Fonctionnalité à venir !</p>
             </section>
 
             <!-- Section d'ajout d'éléments -->
             <section class="add-item-section">
-                <h2>Ajouter un contenu</h2>
-                <input type="text" id="itemTitle" placeholder="Titre de l'élément" required>
-                <input type="text" id="itemDescription" placeholder="Description de l'élément" required>
-                <input type="text" id="itemImage" placeholder="URL de l'image" required>
+                <h2>Ajouter Contenu</h2>
                 <select id="itemType">
                     <option value="video">Vidéo</option>
                     <option value="photo">Photo</option>
                     <option value="projet">Projet</option>
                 </select>
+                <input type="text" id="itemTitle" placeholder="Titre" required>
+                <input type="text" id="itemDescription" placeholder="Description" required>
+                <input type="text" id="itemImage" placeholder="URL de l'image" required>
                 <button id="addItemButton">Ajouter</button>
-                <div id="addItemMessage" class="error-message"></div>
+                <p class="error-message" id="addItemMessage"></p>
             </section>
 
-            <!-- Section pour les vidéos -->
+            <!-- Section des vidéos -->
             <section id="videos">
                 <h2>Vidéos</h2>
-                <div class="content-section" id="videoContent"></div>
+                <div class="content-section" id="videoContent">
+                    <!-- Les vidéos ajoutées apparaîtront ici -->
+                </div>
             </section>
 
-            <!-- Section pour les photos -->
+            <!-- Section de photos -->
             <section id="photos">
                 <h2>Photos</h2>
-                <div class="content-section" id="photoContent"></div>
+                <div class="content-section" id="photoContent">
+                    <!-- Les photos ajoutées apparaîtront ici -->
+                </div>
             </section>
 
-            <!-- Section pour les projets -->
+            <!-- Section de projets -->
             <section id="projets">
                 <h2>Projets</h2>
-                <div class="content-section" id="projectContent"></div>
+                <div class="content-section" id="projectContent">
+                    <!-- Les projets ajoutés apparaîtront ici -->
+                </div>
+            </section>
+
+            <!-- Section de streaming -->
+            <section id="streaming">
+                <h2>Streaming</h2>
+                <p>Fonctionnalité à venir !</p>
             </section>
         </main>
     </div>
@@ -360,95 +300,51 @@
     </footer>
 
     <script>
-        // Gestion de l'inscription
-        document.getElementById('signupForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        // Gestion de l'affichage des formulaires d'inscription et de connexion
+        document.getElementById('signupLink').onclick = function () {
+            document.getElementById('signup').style.display = 'block';
+            document.getElementById('login').style.display = 'none';
+            document.getElementById('profile').style.display = 'none';
+        };
 
-            if (username === '' || email === '' || password === '') {
-                document.getElementById('signupMessage').innerText = 'Tous les champs sont requis.';
-                return;
-            }
+        document.getElementById('loginLink').onclick = function () {
+            document.getElementById('signup').style.display = 'none';
+            document.getElementById('login').style.display = 'block';
+            document.getElementById('profile').style.display = 'none';
+        };
 
-            // Simuler une inscription réussie
-            document.getElementById('signupMessage').innerText = 'Inscription réussie !';
-            this.reset();
-        });
-
-        // Gestion de la connexion
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            const loginUsername = document.getElementById('loginUsername').value;
-            const loginPassword = document.getElementById('loginPassword').value;
-
-            if (loginUsername === '' || loginPassword === '') {
-                document.getElementById('loginMessage').innerText = 'Tous les champs sont requis.';
-                return;
-            }
-
-            // Simuler une connexion réussie
-            document.getElementById('loginMessage').innerText = 'Connexion réussie !';
-            this.reset();
-        });
-
-        // Gestion de l'ajout d'éléments
-        document.getElementById('addItemButton').addEventListener('click', function () {
-            const title = document.getElementById('itemTitle').value;
-            const description = document.getElementById('itemDescription').value;
-            const imageUrl = document.getElementById('itemImage').value;
+        // Ajouter un contenu
+        document.getElementById('addItemButton').onclick = function (event) {
+            event.preventDefault();
             const itemType = document.getElementById('itemType').value;
+            const itemTitle = document.getElementById('itemTitle').value;
+            const itemDescription = document.getElementById('itemDescription').value;
+            const itemImage = document.getElementById('itemImage').value;
+            const itemContent = document.createElement('div');
+            itemContent.className = 'content-card';
 
-            const newItem = {
-                title: title,
-                description: description,
-                imageUrl: imageUrl,
-                type: itemType
-            };
-
-            // Récupérer les éléments existants du stockage local
-            const items = JSON.parse(localStorage.getItem('items')) || [];
-            items.push(newItem);
-            localStorage.setItem('items', JSON.stringify(items));
-
-            const newCard = document.createElement('div');
-            newCard.className = 'content-card';
-            newCard.innerHTML = `
-                <img src="${imageUrl}" alt="${title}">
-                <div class="content-title">${title}</div>
-                <p>${description}</p>
+            // Création de la carte de contenu
+            itemContent.innerHTML = `
+                <img src="${itemImage}" alt="${itemTitle}">
+                <div class="content-title">${itemTitle}</div>
+                <p>${itemDescription}</p>
             `;
 
-            // Ajout du nouvel élément à la bonne section
+            // Ajout du contenu dans la bonne section
             if (itemType === 'video') {
-                document.getElementById('videoContent').appendChild(newCard);
+                document.getElementById('videoContent').appendChild(itemContent);
             } else if (itemType === 'photo') {
-                document.getElementById('photoContent').appendChild(newCard);
+                document.getElementById('photoContent').appendChild(itemContent);
             } else if (itemType === 'projet') {
-                document.getElementById('projectContent').appendChild(newCard);
+                document.getElementById('projectContent').appendChild(itemContent);
             }
 
-            // Réinitialiser les champs d'ajout
+            // Réinitialiser les champs
             document.getElementById('itemTitle').value = '';
             document.getElementById('itemDescription').value = '';
             document.getElementById('itemImage').value = '';
-            document.getElementById('addItemMessage').innerText = 'Élément ajouté avec succès !';
-        });
-
-        // Gestion de la mise à jour du profil
-        document.getElementById('updateProfileButton').addEventListener('click', function () {
-            const profileUsername = document.getElementById('profileUsername').value;
-            const profileEmail = document.getElementById('profileEmail').value;
-
-            if (profileUsername === '' || profileEmail === '') {
-                document.getElementById('profileMessage').innerText = 'Tous les champs sont requis.';
-                return;
-            }
-
-            // Simuler une mise à jour réussie
-            document.getElementById('profileMessage').innerText = 'Profil mis à jour avec succès !';
-        });
+            document.getElementById('addItemMessage').textContent = 'Contenu ajouté avec succès !';
+        };
     </script>
 </body>
 
