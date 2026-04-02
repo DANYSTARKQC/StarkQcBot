@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANYSTARKQC - Photos</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANYSTARKQC — Photos</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body data-page="photos">
 
-<body>
-    <header>
-        <div class="logo">DANYSTARKQC</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher des photos...">
-        </div>
-        <div class="user-buttons">
-            <a href="signup.html">Inscription</a>
-            <a href="login.html">Connexion</a>
-        </div>
-    </header>
+  <header>
+    <div class="logo"><a href="index.html">DANY<span style="color:var(--text-primary)">STARKQC</span></a></div>
+    <div class="search-bar"><input type="text" placeholder="Rechercher des photos..."></div>
+    <nav>
+      <a href="index.html">🏠 Accueil</a>
+      <a href="videos.html">🎬 Vidéos</a>
+      <a href="streaming.html" class="live-link"><span class="live-dot"></span> Live</a>
+      <a href="photos.html" class="active">🖼️ Photos</a>
+      <a href="projects.html">🚀 Projets</a>
+    </nav>
+    <div class="user-buttons" id="userButtons"></div>
+  </header>
 
-    <main>
-        <h1>Photos</h1>
-        <div class="content-section" id="photoContent">
-            <!-- Les photos ajoutées apparaîtront ici -->
-        </div>
-    </main>
+  <main>
+    <h1 class="page-title">🖼️ Photos</h1>
+    <div id="photoContent"></div>
+  </main>
 
-    <footer>
-        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
-    </footer>
+  <!-- ADD PHOTO MODAL -->
+  <div class="modal-overlay" id="addPhotoModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Ajouter une photo</h2>
+        <button class="modal-close" onclick="closeModal('addPhotoModal')">×</button>
+      </div>
+      <form id="addPhotoForm">
+        <div>
+          <label class="modal-label">Titre de la photo *</label>
+          <input class="modal-form-input" id="pTitle" type="text" placeholder="Ex: Screenshot du stream..." required>
+        </div>
+        <div>
+          <label class="modal-label">URL de l'image *</label>
+          <input class="modal-form-input" id="pUrl" type="url" placeholder="https://..." required>
+        </div>
+        <button class="modal-submit" type="submit">Publier la photo</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 DANYSTARKQC — <a href="index.html">Accueil</a> · <a href="streaming.html">Live</a></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

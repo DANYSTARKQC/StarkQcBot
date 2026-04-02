@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANYSTARKQC - Inscription</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANYSTARKQC — Inscription</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body data-page="signup">
 
-<body>
-    <header>
-        <div class="logo">DANYSTARKQC</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher des vidéos...">
-        </div>
-        <div class="user-buttons">
-            <a href="login.html">Connexion</a>
-        </div>
-    </header>
+  <header>
+    <div class="logo"><a href="index.html">DANY<span style="color:var(--text-primary)">STARKQC</span></a></div>
+    <div class="search-bar"><input type="text" placeholder="Rechercher..."></div>
+    <nav>
+      <a href="index.html">🏠 Accueil</a>
+      <a href="videos.html">🎬 Vidéos</a>
+      <a href="streaming.html" class="live-link"><span class="live-dot"></span> Live</a>
+    </nav>
+    <div class="user-buttons" id="userButtons">
+      <a href="login.html" class="btn-primary" style="padding:7px 16px;border-radius:7px;background:var(--accent);color:white;font-size:14px;font-weight:600;">Connexion</a>
+    </div>
+  </header>
 
-    <main>
-        <h1>Inscription</h1>
+  <main>
+    <div class="form-page">
+      <div class="form-card">
+        <div class="form-logo">DANYSTARKQC</div>
+        <h1>Créer un compte</h1>
+        <p class="form-subtitle">Rejoins la communauté DANYSTARKQC! 🎮</p>
+
         <form id="signupForm">
-            <input type="text" id="username" placeholder="Nom d'utilisateur" required>
-            <input type="password" id="password" placeholder="Mot de passe" required>
-            <button type="submit">S'inscrire</button>
+          <div class="form-group">
+            <label for="username">Nom d'utilisateur *</label>
+            <input type="text" id="username" placeholder="Choisis un pseudo" required autocomplete="username" minlength="3">
+          </div>
+          <div class="form-group">
+            <label for="email">Email (optionnel)</label>
+            <input type="email" id="email" placeholder="ton@email.com" autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe *</label>
+            <input type="password" id="password" placeholder="Min. 6 caractères" required autocomplete="new-password" minlength="6">
+          </div>
+          <button type="submit" class="form-submit">Créer mon compte</button>
         </form>
-        <p id="signupMessage"></p>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
-    </footer>
+        <p class="form-message" id="signupMessage"></p>
 
-    <script src="script.js"></script>
+        <p class="form-footer-link">
+          Déjà un compte? <a href="login.html">Se connecter</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 DANYSTARKQC — <a href="index.html">Accueil</a></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,35 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANYSTARKQC - Projets</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANYSTARKQC — Projets</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body data-page="projects">
 
-<body>
-    <header>
-        <div class="logo">DANYSTARKQC</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher des projets...">
-        </div>
-        <div class="user-buttons">
-            <a href="signup.html">Inscription</a>
-            <a href="login.html">Connexion</a>
-        </div>
-    </header>
+  <header>
+    <div class="logo"><a href="index.html">DANY<span style="color:var(--text-primary)">STARKQC</span></a></div>
+    <div class="search-bar"><input type="text" placeholder="Rechercher des projets..."></div>
+    <nav>
+      <a href="index.html">🏠 Accueil</a>
+      <a href="videos.html">🎬 Vidéos</a>
+      <a href="streaming.html" class="live-link"><span class="live-dot"></span> Live</a>
+      <a href="photos.html">🖼️ Photos</a>
+      <a href="projects.html" class="active">🚀 Projets</a>
+    </nav>
+    <div class="user-buttons" id="userButtons"></div>
+  </header>
 
-    <main>
-        <h1>Projets</h1>
-        <div class="content-section" id="projectContent">
-            <!-- Les projets ajoutés apparaîtront ici -->
-        </div>
-    </main>
+  <main>
+    <h1 class="page-title">🚀 Projets</h1>
+    <div id="projectContent"></div>
+  </main>
 
-    <footer>
-        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
-    </footer>
+  <!-- ADD PROJECT MODAL -->
+  <div class="modal-overlay" id="addProjectModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Ajouter un projet</h2>
+        <button class="modal-close" onclick="closeModal('addProjectModal')">×</button>
+      </div>
+      <form id="addProjectForm">
+        <div>
+          <label class="modal-label">Nom du projet *</label>
+          <input class="modal-form-input" id="prTitle" type="text" placeholder="Ex: Bot Discord v2.0" required>
+        </div>
+        <div>
+          <label class="modal-label">Description *</label>
+          <input class="modal-form-input" id="prDesc" type="text" placeholder="Brève description du projet..." required>
+        </div>
+        <div>
+          <label class="modal-label">Tag / Technologie</label>
+          <input class="modal-form-input" id="prTag" type="text" placeholder="Ex: Python, JavaScript, Roblox...">
+        </div>
+        <div>
+          <label class="modal-label">Lien (optionnel)</label>
+          <input class="modal-form-input" id="prLink" type="url" placeholder="https://github.com/...">
+        </div>
+        <button class="modal-submit" type="submit">Publier le projet</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 DANYSTARKQC — <a href="index.html">Accueil</a> · <a href="streaming.html">Live</a></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-
 </html>

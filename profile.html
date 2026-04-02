@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANYSTARKQC - Profil</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANYSTARKQC — Mon Profil</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+<body data-page="profile">
 
-<body>
-    <header>
-        <div class="logo">DANYSTARKQC</div>
-        <div class="search-bar">
-            <input type="text" placeholder="Rechercher des vidéos...">
+  <header>
+    <div class="logo"><a href="index.html">DANY<span style="color:var(--text-primary)">STARKQC</span></a></div>
+    <div class="search-bar"><input type="text" placeholder="Rechercher..."></div>
+    <nav>
+      <a href="index.html">🏠 Accueil</a>
+      <a href="videos.html">🎬 Vidéos</a>
+      <a href="streaming.html" class="live-link"><span class="live-dot"></span> Live</a>
+      <a href="photos.html">🖼️ Photos</a>
+      <a href="projects.html">🚀 Projets</a>
+    </nav>
+    <div class="user-buttons" id="userButtons"></div>
+  </header>
+
+  <main>
+    <h1 class="page-title">👤 Mon Profil</h1>
+    <div id="profileContent"></div>
+
+    <!-- Quick links -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:10px;">
+      <a href="videos.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:24px;">🎬</span>
+        <div>
+          <div style="font-weight:600;font-size:14px;">Mes vidéos</div>
+          <div style="color:var(--text-secondary);font-size:12px;">Gérer les vidéos</div>
         </div>
-        <div class="user-buttons" id="userButtons">
-            <a href="login.html">Connexion</a>
+      </a>
+      <a href="photos.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:24px;">🖼️</span>
+        <div>
+          <div style="font-weight:600;font-size:14px;">Mes photos</div>
+          <div style="color:var(--text-secondary);font-size:12px;">Gérer les photos</div>
         </div>
-    </header>
+      </a>
+      <a href="projects.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:24px;">🚀</span>
+        <div>
+          <div style="font-weight:600;font-size:14px;">Mes projets</div>
+          <div style="color:var(--text-secondary);font-size:12px;">Gérer les projets</div>
+        </div>
+      </a>
+      <a href="streaming.html" style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='#eb0400'" onmouseout="this.style.borderColor='var(--border)'">
+        <span style="font-size:24px;">📡</span>
+        <div>
+          <div style="font-weight:600;font-size:14px;">Live Stream</div>
+          <div style="color:var(--text-secondary);font-size:12px;">Aller au stream</div>
+        </div>
+      </a>
+    </div>
+  </main>
 
-    <main>
-        <h1>Mon Profil</h1>
-        <div id="profileInfo"></div>
-        <button id="logoutButton">Se déconnecter</button>
-    </main>
+  <footer>
+    <p>&copy; 2024 DANYSTARKQC — <a href="index.html">Accueil</a></p>
+  </footer>
 
-    <footer>
-        <p>&copy; 2024 DANYSTARKQC. Tous droits réservés.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
