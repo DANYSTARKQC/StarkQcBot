@@ -7,9 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="streaming">
-
   <header>
-    <div class="logo"><a href="index.html">DANY<span style="color:var(--text-primary)">STARKQC</span></a></div>
+    <div class="logo"><a href="index.html">DANY<span>STARKQC</span></a></div>
     <div class="search-bar"><input type="text" placeholder="Rechercher des streams..."></div>
     <nav>
       <a href="index.html">🏠 Accueil</a>
@@ -28,44 +27,44 @@
       <!-- PLAYER -->
       <div>
         <div class="stream-player-wrap">
-          <!--
-            Pour intégrer ton Twitch, remplace TONNOM par ton pseudo Twitch :
-            <iframe src="https://player.twitch.tv/?channel=TONNOM&parent=localhost" allowfullscreen></iframe>
-
-            Pour intégrer un stream YouTube, remplace VIDEO_ID :
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" allowfullscreen></iframe>
+          <!-- Uncomment and replace TONNOM/VIDEO_ID to embed live stream:
+          <iframe src="https://player.twitch.tv/?channel=TONNOM&parent=localhost" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1" allowfullscreen></iframe>
           -->
           <div class="stream-offline">
             <div class="offline-icon">📺</div>
             <h3>Hors ligne pour l'instant</h3>
             <p>Le stream démarrera bientôt. Reviens plus tard!</p>
-            <div style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
-              <a href="https://twitch.tv/DANYSTARKQC" target="_blank" style="background:#9147ff;color:white;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
-                <svg viewBox="0 0 24 24" style="width:16px;fill:white"><path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z"/></svg>
+            <div style="margin-top:22px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+              <a href="https://twitch.tv/DANYSTARKQC" target="_blank" style="background:#9147ff;color:white;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:8px;">
+                <svg viewBox="0 0 24 24" style="width:15px;fill:white"><path d="M2.149 0l-1.612 4.119v16.836h5.731v3.045h3.224l3.045-3.045h4.657l6.269-6.269v-14.686h-21.314zm19.164 13.612l-3.582 3.582h-5.731l-3.045 3.045v-3.045h-4.836v-15.045h17.194v11.463zm-3.582-7.343v6.262h-2.149v-6.262h2.149zm-5.731 0v6.262h-2.149v-6.262h2.149z"/></svg>
                 Twitch
               </a>
-              <a href="https://youtube.com/@DANYSTARKQC" target="_blank" style="background:#ff0000;color:white;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
-                <svg viewBox="0 0 24 24" style="width:16px;fill:white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <a href="https://youtube.com/@DANYSTARKQC" target="_blank" style="background:#ff0000;color:white;padding:10px 22px;border-radius:50px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:8px;">
+                <svg viewBox="0 0 24 24" style="width:15px;fill:white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 YouTube
               </a>
             </div>
           </div>
         </div>
 
+        <!-- Channel banner strip -->
+        <div id="streamChannelBanner" style="width:100%;height:6px;border-radius:0 0 var(--r-md) var(--r-md);background:linear-gradient(90deg,var(--accent),var(--accent-purple));opacity:0.6;margin-bottom:14px;transition:all 0.3s;"></div>
+
         <!-- Stream info -->
-        <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-top:16px;">
+        <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--r-md);padding:18px 20px;">
           <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px;">
-            <div style="width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Exo 2',sans-serif;font-size:18px;font-weight:900;color:white;box-shadow:0 0 14px var(--accent-glow);">D</div>
+            <div id="streamInfoAvatar" style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-purple));display:flex;align-items:center;justify-content:center;font-family:'Barlow',sans-serif;font-size:18px;font-weight:900;color:white;box-shadow:0 0 14px var(--glow-accent);flex-shrink:0;">D</div>
             <div>
-              <div style="font-family:'Exo 2',sans-serif;font-weight:700;font-size:16px;">DANYSTARKQC</div>
-              <div style="color:var(--text-secondary);font-size:13px;">Gaming · Québec</div>
+              <div style="font-family:'Barlow',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:0.3px;">DANYSTARKQC</div>
+              <div style="color:var(--text-secondary);font-size:12px;margin-top:2px;">Gaming · Québec 🇨🇦</div>
             </div>
             <div style="margin-left:auto;">
-              <a href="https://twitch.tv/DANYSTARKQC" target="_blank" style="background:#9147ff;color:white;padding:8px 18px;border-radius:7px;font-size:13px;font-weight:600;display:inline-block;">Suivre sur Twitch</a>
+              <a href="https://twitch.tv/DANYSTARKQC" target="_blank" style="background:#9147ff;color:white;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:700;display:inline-block;transition:background 0.2s;" onmouseover="this.style.background='#7d3fe8'" onmouseout="this.style.background='#9147ff'">Suivre sur Twitch</a>
             </div>
           </div>
-          <p style="color:var(--text-secondary);font-size:14px;line-height:1.7;">
-            Bienvenue sur le stream de DANYSTARKQC! Gaming, projets tech, et bonne ambiance québécoise. 🇨🇦🎮
+          <p style="color:var(--text-secondary);font-size:13.5px;line-height:1.7;">
+            Bienvenue sur le stream de DANYSTARKQC! Gaming, projets tech, et bonne ambiance québécoise. 🎮
           </p>
         </div>
       </div>
@@ -73,37 +72,37 @@
       <!-- CHAT -->
       <div class="chat-box">
         <div class="chat-header">
-          <span style="color:var(--accent-live);font-size:16px;">●</span>
+          <span style="color:#eb0400;font-size:14px;">●</span>
           Chat en direct
         </div>
         <div class="chat-messages" id="chatMessages"></div>
         <div class="chat-input-row">
           <form id="chatForm" style="display:flex;gap:8px;flex:1;margin:0;max-width:none;">
             <input type="text" id="chatInput" placeholder="Envoie un message..." maxlength="200" autocomplete="off">
-            <button type="submit">Envoyer</button>
+            <button type="submit">→</button>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Schedule section -->
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-top:10px;">
-      <div style="font-family:'Exo 2',sans-serif;font-size:18px;font-weight:700;margin-bottom:16px;">📅 Horaire des streams</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;">
-        <div style="background:var(--bg-secondary);border-radius:8px;padding:12px;text-align:center;">
-          <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:4px;">LUNDI</div>
+    <!-- Schedule -->
+    <div style="background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px 28px;margin-top:6px;">
+      <div style="font-family:'Barlow',sans-serif;font-size:16px;font-weight:900;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:16px;">📅 Horaire des streams</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;">
+        <div style="background:var(--bg-card);border-radius:var(--r-sm);padding:12px;text-align:center;">
+          <div style="color:var(--text-muted);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">LUNDI</div>
           <div style="color:var(--text-secondary);font-size:12px;">À confirmer</div>
         </div>
-        <div style="background:var(--bg-secondary);border-radius:8px;padding:12px;text-align:center;">
-          <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:4px;">MERCREDI</div>
+        <div style="background:var(--bg-card);border-radius:var(--r-sm);padding:12px;text-align:center;">
+          <div style="color:var(--text-muted);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">MERCREDI</div>
           <div style="color:var(--text-secondary);font-size:12px;">À confirmer</div>
         </div>
-        <div style="background:rgba(255,69,0,0.08);border:1px solid rgba(255,69,0,0.2);border-radius:8px;padding:12px;text-align:center;">
-          <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:4px;">VENDREDI</div>
+        <div style="background:rgba(145,71,255,0.08);border:1px solid rgba(145,71,255,0.2);border-radius:var(--r-sm);padding:12px;text-align:center;">
+          <div style="color:var(--accent-purple);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">VENDREDI</div>
           <div style="color:var(--text-secondary);font-size:12px;">20h00 EST</div>
         </div>
-        <div style="background:rgba(255,69,0,0.08);border:1px solid rgba(255,69,0,0.2);border-radius:8px;padding:12px;text-align:center;">
-          <div style="color:var(--accent);font-weight:700;font-size:13px;margin-bottom:4px;">SAMEDI</div>
+        <div style="background:rgba(145,71,255,0.08);border:1px solid rgba(145,71,255,0.2);border-radius:var(--r-sm);padding:12px;text-align:center;">
+          <div style="color:var(--accent-purple);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">SAMEDI</div>
           <div style="color:var(--text-secondary);font-size:12px;">19h00 EST</div>
         </div>
       </div>
