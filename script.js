@@ -71,13 +71,7 @@ const Content = {
     list.unshift({ id: Date.now(), title, url, createdAt: Date.now() });
     localStorage.setItem('dsq_photos', JSON.stringify(list));
   },
-  getPhotos() { return JSON.parse(localStorage.getItem('dsq_photos') || '[]'); },
-  addProject(title, desc, tag, link) {
-    const list = JSON.parse(localStorage.getItem('dsq_projects') || '[]');
-    list.unshift({ id: Date.now(), title, desc, tag, link: link || '', createdAt: Date.now() });
-    localStorage.setItem('dsq_projects', JSON.stringify(list));
-  },
-  getProjects() { return JSON.parse(localStorage.getItem('dsq_projects') || '[]'); }
+  getPhotos() { return JSON.parse(localStorage.getItem('dsq_photos') || '[]'); }
 };
 
 /* ══════════════════════════════════════
@@ -219,35 +213,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (page === 'projects') {
-    const user = Auth.current();
-    const projects = Content.getProjects();
-    const container = document.getElementById('projectContent');
-    let html = '';
-    if (user) html += `<button class="add-btn" onclick="openModal('addProjectModal')">＋ Ajouter un projet</button>`;
-    if (!projects.length) {
-      html += `<div class="empty-state"><div class="empty-icon">🚀</div><h3>Aucun projet pour l'instant</h3><p>Les projets publiés apparaîtront ici.</p></div>`;
-    } else {
-      html += '<div class="content-grid">';
-      projects.forEach(p => {
-        html += `<div class="project-card" ${p.link ? `onclick="window.open('${p.link}','_blank')" style="cursor:pointer"` : ''}>
-          <h3>${p.title}</h3><p>${p.desc}</p>
-          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-            ${p.tag ? `<span class="tag">${p.tag}</span>` : ''}
-            <span style="color:var(--text-muted);font-size:12px">${fmtDate(p.createdAt)}</span>
-          </div>
-        </div>`;
-      });
-      html += '</div>';
-    }
-    container.innerHTML = html;
-    document.getElementById('addProjectForm')?.addEventListener('submit', (e) => {
-      e.preventDefault();
-      Content.addProject(document.getElementById('prTitle').value.trim(), document.getElementById('prDesc').value.trim(), document.getElementById('prTag').value.trim(), document.getElementById('prLink').value.trim());
-      closeModal('addProjectModal'); location.reload();
-    });
-  }
-
   if (page === 'streaming') { initStreamPage(); initChat(); }
   if (page === 'home') renderHomeVideos();
 });
@@ -262,7 +227,6 @@ function renderProfile() {
   const info = Auth.getUser(session.username);
   const videos = Content.getVideos();
   const photos = Content.getPhotos();
-  const projects = Content.getProjects();
 
   const avatarUrl  = info?.avatar    || '';
   const bannerUrl  = info?.banner    || '';
@@ -298,7 +262,6 @@ function renderProfile() {
         <div class="profile-stats">
           <div class="stat"><div class="num">${videos.length}</div><div class="lbl">Vidéos</div></div>
           <div class="stat"><div class="num">${photos.length}</div><div class="lbl">Photos</div></div>
-          <div class="stat"><div class="num">${projects.length}</div><div class="lbl">Projets</div></div>
         </div>
       </div>
       <div style="margin-left:auto;display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;padding-top:4px;">
